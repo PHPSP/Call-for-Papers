@@ -3,12 +3,12 @@ PHPSPLabs - PHPSP User Group
 Mantainer: Augusto Pascutti <augusto [at] phpsp org br>
 
 This is an effort of doing a system which can be used to  gather presentations
-from people for an specific event. This project is open sourced under the PHP
-Licence 3.01 and can be used and modified by anyone. The requirements are:
+from people for an specific event. This project is open sourced under the MIT
+Licence and can be used and modified by anyone. The requirements are:
 - PHP 5 or greater
 - MySQL 5 or greater
 
 
 Third Party code used:
-- CakePHP framework 1.3
+- CakePHP 1.3 by Cake Software Fundation Inc.
 - Image Behaviour for CakePHP by Yevgeny Tomenko aka SkieDr 
