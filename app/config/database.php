@@ -88,9 +88,9 @@ class DATABASE_CONFIG {
     	'driver' => 'mysqli',
     	'persistent' => false,
     	'host' => '127.0.0.1',
-    	'login' => 'phpconf',
-    	'password' => 'phpconf',
-    	'database' => 'phpconf',
+    	'login' => 'cfp',
+    	'password' => 'cfp',
+    	'database' => 'cfp',
     	'prefix' => '',
     	'encoding' => 'utf-8',
     );
