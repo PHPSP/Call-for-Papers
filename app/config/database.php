@@ -76,10 +76,10 @@ class DATABASE_CONFIG {
 	var $production = array(
 		'driver' => 'mysqli',
 		'persistent' => false,
-		'host' => 'mysql2.phpconf.com.br',
-		'login' => 'phpconf2',
-		'password' => '87b7mUP7',
-		'database' => 'phpconf2',
+		'host' => '',
+		'login' => '',
+		'password' => '',
+		'database' => '',
 		'prefix' => '',
 		'encoding' => 'utf-8',
 	);
