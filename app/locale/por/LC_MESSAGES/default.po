@@ -1,0 +1,258 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2010-06-08 16:19-0300\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+msgid "B"
+msgstr "Básico"
+
+msgid "I"
+msgstr "Intermediário"
+
+msgid "A"
+msgstr "Avançado"
+
+msgid "Avatar"
+msgstr "Foto"
+
+msgid "Level"
+msgstr "Nível"
+
+msgid "Time"
+msgstr "Duração"
+
+msgid "After the speech, what attendee will know?"
+msgstr "Depois da palestra o congressista estará apto a?"
+
+msgid "Description"
+msgstr "Descrição"
+
+msgid "Abstract"
+msgstr "Descrição curta"
+
+msgid "Title"
+msgstr "Tíulo"
+
+msgid "Area"
+msgstr "Macro-tema"
+
+msgid "Phone"
+msgstr "Telefone para contato"
+
+msgid "Zip"
+msgstr "Cep"
+
+msgid "Country"
+msgstr "País"
+
+msgid "State"
+msgstr "Estado"
+
+msgid "City"
+msgstr "Cidade"
+
+msgid "Address"
+msgstr "Endereço"
+
+msgid "Complement"
+msgstr "Complemento do endereço"
+
+msgid "Password"
+msgstr "Senha"
+
+msgid "user"
+msgstr "usuário"
+
+msgid "speaker"
+msgstr "palestrante"
+
+msgid "proposal"
+msgstr "palestra"
+
+#: /controllers/proposals_controller.php:25
+msgid "The given proposal does not belongs to you!"
+msgstr "Apalestra que você deseja ver não pertence a você!"
+
+#: /controllers/proposals_controller.php:51;69
+#: /controllers/speakers_controller.php:35
+#: /controllers/users_controller.php:26
+msgid "The %s has been saved"
+msgstr "O(a) %s foi salvo(a)"
+
+#: /controllers/proposals_controller.php:54;72
+#: /controllers/speakers_controller.php:38
+#: /controllers/users_controller.php:29;57
+msgid "The %s could not be saved. Please, try again."
+msgstr "O(a) %s não pode ser salvo(a). Por favor, tente novamente."
+
+#: /controllers/proposals_controller.php:63
+#: /controllers/speakers_controller.php:49
+#: /controllers/users_controller.php:21
+msgid "Invalid %s"
+msgstr "%s inválido"
+
+#: /controllers/proposals_controller.php:85
+msgid "Invalid id for %s"
+msgstr "Id inválido"
+
+#: /controllers/proposals_controller.php:89
+msgid "%s deleted"
+msgstr "%s removido"
+
+#: /controllers/proposals_controller.php:92
+msgid "%s was not deleted"
+msgstr "%s não pode ser removido"
+
+#: /controllers/speakers_controller.php:54
+msgid "Your information has been saved"
+msgstr "Sua informação foi salva"
+
+#: /controllers/speakers_controller.php:57
+msgid "Your information could not be saved. Please, try again."
+msgstr "Sua informação não pode ser salva. Por favor, tente novamente."
+
+#: /controllers/users_controller.php:54
+msgid "The %s has been registered"
+msgstr "O(a) %s foi registrado(a)"
+
+#: /controllers/users_controller.php:61
+msgid "The passwords don't match"
+msgstr "As senhas não conferem"
+
+#: /views/layouts/default.ctp:6
+msgid "PHP Conference Brazil - Call for Papers"
+msgstr "PHP Conference Brasil - Chamada de Trabalhos"
+
+#: /views/layouts/default.ctp:27
+msgid "New proposal"
+msgstr "Nova Proposta"
+
+#: /views/layouts/default.ctp:28
+msgid "My proposals"
+msgstr "Minhas propostas"
+
+#: /views/layouts/default.ctp:29
+msgid "My account"
+msgstr "Minhas informações"
+
+#: /views/layouts/default.ctp:30
+msgid "Logout"
+msgstr ""
+
+#: /views/proposals/add.ctp:4
+#: /views/speakers/add.ctp:4
+msgid "Add %s"
+msgstr "Adicionar %s"
+
+#: /views/proposals/add.ctp:4
+#: /views/proposals/edit.ctp:4
+msgid "Proposal"
+msgstr "Proposta"
+
+#: /views/proposals/add.ctp:16
+#: /views/proposals/edit.ctp:17
+#: /views/speakers/add.ctp:28
+#: /views/speakers/edit.ctp:25
+#: /views/users/edit.ctp:12
+#: /views/users/register.ctp:13
+msgid "Submit"
+msgstr "Enviar"
+
+#: /views/proposals/edit.ctp:4
+#: /views/speakers/edit.ctp:4
+#: /views/users/edit.ctp:4
+msgid "Edit %s"
+msgstr "Editar %s"
+
+#: /views/proposals/index.ctp:2
+msgid "Proposals"
+msgstr "Propostas"
+
+#: /views/proposals/index.ctp:10
+msgid "Actions"
+msgstr "Ações"
+
+#: /views/proposals/index.ctp:29
+msgid "Edit"
+msgstr "Editar"
+
+#: /views/proposals/index.ctp:30
+msgid "Delete"
+msgstr "Remover"
+
+#: /views/proposals/index.ctp:30
+msgid "Are you sure you want to delete # %s?"
+msgstr "Tem certeza que deseja remover # %s ?"
+
+#: /views/proposals/index.ctp:37
+msgid "previous"
+msgstr "anterior"
+
+#: /views/proposals/index.ctp:40
+msgid "next"
+msgstr "próximo"
+
+#: /views/speakers/add.ctp:4
+#: /views/speakers/edit.ctp:4
+msgid "Speaker"
+msgstr "Palestrante"
+
+#: /views/speakers/add.ctp:7
+msgid "We need to know some little information from you before you can submit any proposal. You can change this information later, but you cannot skip this step."
+msgstr "Precisamos saber um pouco sobre antes que você possa enviar sua proposta. Você poderá mudar essas informações depois, mas elas são de extrema importância para organização do evento e esta estapa não poderá ser ignorada."
+
+#: /views/speakers/add.ctp:13
+msgid "SSN"
+msgstr "Rg"
+
+#: /views/speakers/add.ctp:14
+#: /views/speakers/edit.ctp:11
+msgid "Bio"
+msgstr "Biografia curta"
+
+#: /views/speakers/add.ctp:15
+#: /views/speakers/edit.ctp:12
+msgid "Full Bio"
+msgstr "Biografia completa"
+
+#: /views/speakers/add.ctp:25
+#: /views/speakers/edit.ctp:22
+msgid "T-shirt size"
+msgstr "Tamanho da camiseta"
+
+#: /views/users/edit.ctp:4
+#: /views/users/register.ctp:4
+msgid "User"
+msgstr "Usuário"
+
+#: /views/users/login.ctp:7;11
+msgid "Login"
+msgstr "Efetuar Login"
+
+#: /views/users/login.ctp:12
+msgid "Register"
+msgstr "Registrar"
+
+#: /views/users/register.ctp:4
+msgid "Register a new %s"
+msgstr "Registra um novo(a) %s"
+
+#: /views/users/register.ctp:10
+msgid "Confirm your password"
+msgstr "Confirme sua senha"
+
+#: /webroot/test.php:88
+msgid "Debug setting does not allow access to this url."
+msgstr ""
+
