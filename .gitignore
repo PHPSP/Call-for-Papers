@@ -1,13 +1,13 @@
 ##
 ## Site configuration
 ##
-config/database.php
+app/config/database.php
 
 ##
 ## Temporary files
 ##
-tmp/
-media/*
+app/tmp/
+app/media/*
 
 ##
 ## Development meta files
