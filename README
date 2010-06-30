@@ -5,28 +5,30 @@ Mantainer: Augusto Pascutti <augusto [at] phpsp org br>
 This is an effort of doing a system which can be used to  gather presentations
 from people for an specific event. This project is open sourced under the MIT
 Licence and can be used and modified by anyone. The requirements are:
-- PHP 5 or greater
-- MySQL 5 or greater
+* PHP 5 or greater
+* MySQL 5 or greater
 
 Third Party code used:
-- CakePHP 1.3 by Cake Software Fundation Inc.
-- Image Behaviour for CakePHP by Yevgeny Tomenko aka SkieDr 
+* CakePHP 1.3 by Cake Software Foundation Inc.
+* Image Behavior for CakePHP by Yevgeny Tomenko aka SkieDr 
 
 Up & Running
-- Be sure that mod_rewrite is enabled in Apache
-- Create the database from the /app/config/schema/cfp.sql file
-- Configure the access to the database in the /app/config/database.php file
-- Grant write access to the apache user in the following dirs and subdirs
--- /app/tmp/cache
--- /app/tmp/logs
--- /app/webroot/img/upload
+* Be sure that mod_rewrite is enabled in Apache
+* Create the database from the /app/config/schema/cfp.sql file
+* Rename the /app/config/database.php.default to /app/config/database.php
+* Configure the access to the database in the /app/config/database.php file
+* Grant write access to the apache user in the following dirs and subdirs
+** /app/tmp/cache
+** /app/tmp/logs
+** /app/webroot/img/upload
+* Point your browser to the address where you installed the app and have fun!
 
 How can you help?
-- Testing and sending us Tickets!
-- Resolving existing tickets!
-- Spreading the word about the project!
+* Testing and sending us Tickets!
+* Resolving existing tickets!
+* Spreading the word about the project!
 
 How can I get Help?
-- First the project's wiki: http://wiki.github.com/PHPSP/Call-for-Papers/ 
-- You can send a message to anyone involved into the project (throught GitHub)
-- CakePHP Manual for 1.3 version (http://book.cakephp.org/view/876/The-Manual)
+* First the project's wiki: http://wiki.github.com/PHPSP/Call-for-Papers/ 
+* You can send a message to anyone involved into the project (throught GitHub)
+* CakePHP Manual for 1.3 version (http://book.cakephp.org/view/876/The-Manual)
