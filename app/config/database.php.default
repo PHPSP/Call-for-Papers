@@ -73,29 +73,16 @@
  */
 class DATABASE_CONFIG {
 
-	var $production = array(
-		'driver' => 'mysqli',
+	var $default = array(
+		'driver' => 'mysql',
 		'persistent' => false,
-		'host' => '',
-		'login' => '',
-		'password' => '',
-		'database' => '',
+		'host' => 'localhost',
+		'login' => 'user',
+		'password' => 'password',
+		'database' => 'database_name',
 		'prefix' => '',
-		'encoding' => 'utf-8',
 	);
-	
-    var $default = array(
-    	'driver' => 'mysqli',
-    	'persistent' => false,
-    	'host' => '127.0.0.1',
-    	'login' => 'cfp',
-    	'password' => 'cfp',
-    	'database' => 'cfp',
-    	'prefix' => '',
-    	'encoding' => 'utf-8',
-    );
 
-/*
 	var $test = array(
 		'driver' => 'mysql',
 		'persistent' => false,
@@ -105,6 +92,4 @@ class DATABASE_CONFIG {
 		'database' => 'test_database_name',
 		'prefix' => '',
 	);
-*/
 }
-?>
