@@ -2,12 +2,12 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
-CREATE SCHEMA IF NOT EXISTS `phpconf` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+CREATE SCHEMA IF NOT EXISTS `cfp` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
 
 -- -----------------------------------------------------
--- Table `phpconf`.`groups`
+-- Table `cfp`.`groups`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `phpconf`.`groups` (
+CREATE  TABLE IF NOT EXISTS `cfp`.`groups` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(45) NOT NULL ,
   PRIMARY KEY (`id`) )
@@ -15,9 +15,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `phpconf`.`users`
+-- Table `cfp`.`users`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `phpconf`.`users` (
+CREATE  TABLE IF NOT EXISTS `cfp`.`users` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `email` VARCHAR(255) NOT NULL ,
   `password` CHAR(40) NOT NULL ,
@@ -30,16 +30,16 @@ CREATE  TABLE IF NOT EXISTS `phpconf`.`users` (
   INDEX `fk_users_groups` (`group_id` ASC) ,
   CONSTRAINT `fk_users_groups`
     FOREIGN KEY (`group_id` )
-    REFERENCES `phpconf`.`groups` (`id` )
+    REFERENCES `cfp`.`groups` (`id` )
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `phpconf`.`speakers`
+-- Table `cfp`.`speakers`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `phpconf`.`speakers` (
+CREATE  TABLE IF NOT EXISTS `cfp`.`speakers` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `user_id` INT NOT NULL ,
   `rg` VARCHAR(100) NOT NULL ,
@@ -61,16 +61,16 @@ CREATE  TABLE IF NOT EXISTS `phpconf`.`speakers` (
   INDEX `fk_speakers_users` (`user_id` ASC) ,
   CONSTRAINT `fk_speakers_users`
     FOREIGN KEY (`user_id` )
-    REFERENCES `phpconf`.`users` (`id` )
+    REFERENCES `cfp`.`users` (`id` )
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `phpconf`.`areas`
+-- Table `cfp`.`areas`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `phpconf`.`areas` (
+CREATE  TABLE IF NOT EXISTS `cfp`.`areas` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(100) NOT NULL ,
   PRIMARY KEY (`id`) )
@@ -78,9 +78,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `phpconf`.`proposals`
+-- Table `cfp`.`proposals`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `phpconf`.`proposals` (
+CREATE  TABLE IF NOT EXISTS `cfp`.`proposals` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `speaker_id` INT NOT NULL ,
   `area_id` INT NOT NULL ,
@@ -95,21 +95,21 @@ CREATE  TABLE IF NOT EXISTS `phpconf`.`proposals` (
   INDEX `fk_proposals_areas` (`area_id` ASC) ,
   CONSTRAINT `fk_proposals_speakers`
     FOREIGN KEY (`speaker_id` )
-    REFERENCES `phpconf`.`speakers` (`id` )
+    REFERENCES `cfp`.`speakers` (`id` )
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `fk_proposals_areas`
     FOREIGN KEY (`area_id` )
-    REFERENCES `phpconf`.`areas` (`id` )
+    REFERENCES `cfp`.`areas` (`id` )
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `phpconf`.`acos`
+-- Table `cfp`.`acos`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `phpconf`.`acos` (
+CREATE  TABLE IF NOT EXISTS `cfp`.`acos` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `parent_id` INT NULL ,
   `model` VARCHAR(255) NULL ,
@@ -121,16 +121,16 @@ CREATE  TABLE IF NOT EXISTS `phpconf`.`acos` (
   INDEX `fk_acos_acos` (`parent_id` ASC) ,
   CONSTRAINT `fk_acos_acos`
     FOREIGN KEY (`parent_id` )
-    REFERENCES `phpconf`.`acos` (`id` )
+    REFERENCES `cfp`.`acos` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `phpconf`.`aros`
+-- Table `cfp`.`aros`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `phpconf`.`aros` (
+CREATE  TABLE IF NOT EXISTS `cfp`.`aros` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `parent_id` INT NULL ,
   `model` VARCHAR(255) NULL ,
@@ -142,16 +142,16 @@ CREATE  TABLE IF NOT EXISTS `phpconf`.`aros` (
   INDEX `fk_acos_acos1` (`parent_id` ASC) ,
   CONSTRAINT `fk_aros_aros`
     FOREIGN KEY (`parent_id` )
-    REFERENCES `phpconf`.`aros` (`id` )
+    REFERENCES `cfp`.`aros` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `phpconf`.`acos_aros`
+-- Table `cfp`.`acos_aros`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `phpconf`.`acos_aros` (
+CREATE  TABLE IF NOT EXISTS `cfp`.`acos_aros` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `aco_id` INT NOT NULL ,
   `aro_id` INT NOT NULL ,
@@ -164,21 +164,21 @@ CREATE  TABLE IF NOT EXISTS `phpconf`.`acos_aros` (
   INDEX `fk_acos_has_aros_aros` (`aro_id` ASC) ,
   CONSTRAINT `fk_acos_has_aros_acos`
     FOREIGN KEY (`aco_id` )
-    REFERENCES `phpconf`.`acos` (`id` )
+    REFERENCES `cfp`.`acos` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_acos_has_aros_aros`
     FOREIGN KEY (`aro_id` )
-    REFERENCES `phpconf`.`aros` (`id` )
+    REFERENCES `cfp`.`aros` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `phpconf`.`i18n`
+-- Table `cfp`.`i18n`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `phpconf`.`i18n` (
+CREATE  TABLE IF NOT EXISTS `cfp`.`i18n` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `locale` VARCHAR(6) NOT NULL ,
   `model` VARCHAR(255) NOT NULL ,
@@ -190,9 +190,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `phpconf`.`criterias`
+-- Table `cfp`.`criterias`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `phpconf`.`criterias` (
+CREATE  TABLE IF NOT EXISTS `cfp`.`criterias` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(255) NOT NULL ,
   `multiplier` INT UNSIGNED NOT NULL DEFAULT 1 ,
@@ -201,9 +201,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `phpconf`.`evaluations`
+-- Table `cfp`.`evaluations`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `phpconf`.`evaluations` (
+CREATE  TABLE IF NOT EXISTS `cfp`.`evaluations` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `user_id` INT NOT NULL ,
   `proposal_id` INT NOT NULL ,
@@ -212,21 +212,21 @@ CREATE  TABLE IF NOT EXISTS `phpconf`.`evaluations` (
   INDEX `fk_evaluations_proposals1` (`proposal_id` ASC) ,
   CONSTRAINT `fk_evaluations_users1`
     FOREIGN KEY (`user_id` )
-    REFERENCES `phpconf`.`users` (`id` )
+    REFERENCES `cfp`.`users` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_evaluations_proposals1`
     FOREIGN KEY (`proposal_id` )
-    REFERENCES `phpconf`.`proposals` (`id` )
+    REFERENCES `cfp`.`proposals` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `phpconf`.`criterias_evaluations`
+-- Table `cfp`.`criterias_evaluations`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `phpconf`.`criterias_evaluations` (
+CREATE  TABLE IF NOT EXISTS `cfp`.`criterias_evaluations` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `criteria_id` INT NOT NULL ,
   `evaluation_id` INT NOT NULL ,
@@ -236,12 +236,12 @@ CREATE  TABLE IF NOT EXISTS `phpconf`.`criterias_evaluations` (
   INDEX `fk_criterias_has_evaluations_evaluations1` (`evaluation_id` ASC) ,
   CONSTRAINT `fk_criterias_has_evaluations_criterias1`
     FOREIGN KEY (`criteria_id` )
-    REFERENCES `phpconf`.`criterias` (`id` )
+    REFERENCES `cfp`.`criterias` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_criterias_has_evaluations_evaluations1`
     FOREIGN KEY (`evaluation_id` )
-    REFERENCES `phpconf`.`evaluations` (`id` )
+    REFERENCES `cfp`.`evaluations` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
