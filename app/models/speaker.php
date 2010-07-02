@@ -159,5 +159,25 @@ class Speaker extends AppModel {
 		)
 	);
 
+
+    function beforeSave() {
+
+        //Filter Twitter input to leave only username
+        if(!empty($this->data['Speaker']['twitter'])) {
+            $cleanupRegExp = "/(?:http\:\/\/)?(?:www\.)?(?:twitter\.com)?[\/]?(?:@)?([A-Za-z0-9_-]*)?/";
+            $matches = array();
+
+            $op = preg_match($cleanupRegExp, $this->data['Speaker']['twitter'], $matches);
+
+            //If we found a match use it, otherwise leave it alone
+            if ($op) {
+                $this->data['Speaker']['twitter'] = $matches[1];
+            }
+
+        }
+
+        return true;
+    }
+
 }
 ?>
