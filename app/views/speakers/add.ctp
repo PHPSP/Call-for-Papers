@@ -10,6 +10,8 @@
  	
 	<?php
 	    echo $this->Form->input('image', array('label'=>__('Avatar',true), 'type'=>'file'));
+                echo $this->Form->input('firstName',array('label'=>__('First Name',true)));
+                echo $this->Form->input('lastName',array('label'=>__('Last Name',true)));
 		echo $this->Form->input('rg', array('label'=>__('SSN',true)));
 		echo $this->Form->input('abstract',array('label'=>__('Bio',true)));
 		echo $this->Form->input('description', array('label'=>__('Full Bio',true)));

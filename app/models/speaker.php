@@ -28,6 +28,26 @@ class Speaker extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+        'firstName' => array(
+                        'notempty' => array(
+                                        'rule' => array('notempty'),
+                                        'message' => 'This field cannot be empty.',
+                        //'allowEmpty' => false,
+                        //'required' => false,
+                        //'last' => false, // Stop validation after this rule
+                        //'on' => 'create', // Limit validation to 'create' or 'update' operations
+                        ),
+        ),
+        'lastName' => array(
+                        'notempty' => array(
+                                        'rule' => array('notempty'),
+                                        'message' => 'This field cannot be empty.',
+                        //'allowEmpty' => false,
+                        //'required' => false,
+                        //'last' => false, // Stop validation after this rule
+                        //'on' => 'create', // Limit validation to 'create' or 'update' operations
+                        ),
+        ),
 		'rg' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
