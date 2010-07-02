@@ -267,3 +267,9 @@ DEFAULT CHARACTER SET = latin1;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- -----------------------------------------------------
+-- see bug #14
+-- -----------------------------------------------------
+ALTER TABLE `speakers` ADD `firstName` VARCHAR( 100 ) AFTER `user_id` ,
+ADD `lastName` VARCHAR( 100 ) AFTER `firstName` 
