@@ -70,8 +70,12 @@ class Proposal extends AppModel {
 			),
 		),
 	);
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
+    /**
+     * Belongs to relation
+     *
+     * @var array
+     */
 	public $belongsTo = array(
 		'Speaker' => array(
 			'className' => 'Speaker',
@@ -83,6 +87,13 @@ class Proposal extends AppModel {
 		'Area' => array(
 			'className' => 'Area',
 			'foreignKey' => 'area_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Level' => array(
+			'className' => 'Level',
+			'foreignKey' => 'level_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
@@ -100,9 +111,9 @@ class Proposal extends AppModel {
 	public function checkSpeakerProposal($speaker_id, $proposal_id) {
 	    $this->id = $proposal_id;
 	    $this->read();
-	    if ( ! isset($this->speaker_id) 
-	        || empty($this->speaker_id) 
-	        || $this->speaker_id != $speaker_id ) {
+	    if ( ! isset($this->data['Speaker']['id']) 
+	        || empty($this->data['Speaker']['id']) 
+	        || $this->data['Speaker']['id'] != $speaker_id ) {
 	            return false;
 	    }
 	        

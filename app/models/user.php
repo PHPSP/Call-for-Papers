@@ -1,7 +1,23 @@
 <?php
+/**
+ * User model
+ *
+ * @package default
+ * @author Augusto Pascutti
+ */
 class User extends AppModel {
-	var $name = 'User';
-	var $validate = array(
+    /**
+     * name of the model
+     *
+     * @var string
+     */
+	public $name = 'User';
+	/**
+	 * Validation rules
+	 *
+	 * @var array
+	 */
+	public $validate = array(
 		'email' => array(
 			'email' => array(
 				'rule' => array('email'),
@@ -31,9 +47,13 @@ class User extends AppModel {
 			),
 		),
 	);
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-	var $hasMany = array(
+    /**
+     * Has many association
+     *
+     * @var string
+     */
+	public $hasMany = array(
 		'Speaker' => array(
 			'className' => 'Speaker',
 			'foreignKey' => 'user_id',
@@ -49,8 +69,6 @@ class User extends AppModel {
 		)
 	);
 	
-	function hasSpeaker() {
-	    
-	}
+	
 
 }

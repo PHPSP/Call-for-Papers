@@ -1,6 +1,6 @@
 <?php 
 /* SVN FILE: $Id$ */
-/* App schema generated on: 2010-06-21 18:06:23 : 1277154263*/
+/* App schema generated on: 2010-07-01 23:07:01 : 1278036841*/
 class AppSchema extends CakeSchema {
 	var $name = 'App';
 
@@ -12,14 +12,14 @@ class AppSchema extends CakeSchema {
 	}
 
 	var $acos = array(
-		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'primary'),
-		'parent_id' => array('type' => 'integer', 'null' => true, 'default' => NULL, 'length' => 10),
+		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
+		'parent_id' => array('type' => 'integer', 'null' => true, 'default' => NULL, 'key' => 'index'),
 		'model' => array('type' => 'string', 'null' => true, 'default' => NULL),
-		'foreign_key' => array('type' => 'integer', 'null' => true, 'default' => NULL, 'length' => 10),
+		'foreign_key' => array('type' => 'integer', 'null' => true, 'default' => NULL),
 		'alias' => array('type' => 'string', 'null' => true, 'default' => NULL),
-		'lft' => array('type' => 'integer', 'null' => true, 'default' => NULL, 'length' => 10),
-		'rght' => array('type' => 'integer', 'null' => true, 'default' => NULL, 'length' => 10),
-		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1)),
+		'lft' => array('type' => 'integer', 'null' => true, 'default' => NULL),
+		'rght' => array('type' => 'integer', 'null' => true, 'default' => NULL),
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'fk_acos_acos' => array('column' => 'parent_id', 'unique' => 0)),
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB')
 	);
 	var $areas = array(
@@ -29,35 +29,30 @@ class AppSchema extends CakeSchema {
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB')
 	);
 	var $aros = array(
-		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'primary'),
-		'parent_id' => array('type' => 'integer', 'null' => true, 'default' => NULL, 'length' => 10),
+		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
+		'parent_id' => array('type' => 'integer', 'null' => true, 'default' => NULL, 'key' => 'index'),
 		'model' => array('type' => 'string', 'null' => true, 'default' => NULL),
-		'foreign_key' => array('type' => 'integer', 'null' => true, 'default' => NULL, 'length' => 10),
+		'foreign_key' => array('type' => 'integer', 'null' => true, 'default' => NULL),
 		'alias' => array('type' => 'string', 'null' => true, 'default' => NULL),
-		'lft' => array('type' => 'integer', 'null' => true, 'default' => NULL, 'length' => 10),
-		'rght' => array('type' => 'integer', 'null' => true, 'default' => NULL, 'length' => 10),
-		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1)),
-		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB')
-	);
-	var $aros_acos = array(
-		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'primary'),
-		'aro_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'index'),
-		'aco_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10),
-		'_create' => array('type' => 'string', 'null' => false, 'default' => '0', 'length' => 2),
-		'_read' => array('type' => 'string', 'null' => false, 'default' => '0', 'length' => 2),
-		'_update' => array('type' => 'string', 'null' => false, 'default' => '0', 'length' => 2),
-		'_delete' => array('type' => 'string', 'null' => false, 'default' => '0', 'length' => 2),
-		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'ARO_ACO_KEY' => array('column' => array('aro_id', 'aco_id'), 'unique' => 1)),
+		'lft' => array('type' => 'integer', 'null' => true, 'default' => NULL),
+		'rght' => array('type' => 'integer', 'null' => true, 'default' => NULL),
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'fk_acos_acos1' => array('column' => 'parent_id', 'unique' => 0)),
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB')
 	);
 	var $i18n = array(
-		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'primary'),
-		'locale' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 6, 'key' => 'index'),
-		'model' => array('type' => 'string', 'null' => false, 'default' => NULL, 'key' => 'index'),
-		'foreign_key' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 10, 'key' => 'index'),
-		'field' => array('type' => 'string', 'null' => false, 'default' => NULL, 'key' => 'index'),
+		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
+		'locale' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 6),
+		'model' => array('type' => 'string', 'null' => false, 'default' => NULL),
+		'foreign_key' => array('type' => 'integer', 'null' => false, 'default' => NULL),
+		'field' => array('type' => 'string', 'null' => false, 'default' => NULL),
 		'content' => array('type' => 'text', 'null' => true, 'default' => NULL),
-		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'locale' => array('column' => 'locale', 'unique' => 0), 'model' => array('column' => 'model', 'unique' => 0), 'row_id' => array('column' => 'foreign_key', 'unique' => 0), 'field' => array('column' => 'field', 'unique' => 0)),
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1)),
+		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB')
+	);
+	var $levels = array(
+		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
+		'name' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 45),
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1)),
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB')
 	);
 	var $proposals = array(
@@ -69,7 +64,14 @@ class AppSchema extends CakeSchema {
 		'description' => array('type' => 'text', 'null' => false, 'default' => NULL),
 		'after' => array('type' => 'text', 'null' => false, 'default' => NULL),
 		'time' => array('type' => 'integer', 'null' => false, 'default' => NULL),
-		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'fk_proposals_speakers' => array('column' => 'speaker_id', 'unique' => 0), 'fk_proposals_areas1' => array('column' => 'area_id', 'unique' => 0)),
+		'level_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'index'),
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'fk_proposals_speakers' => array('column' => 'speaker_id', 'unique' => 0), 'fk_proposals_areas' => array('column' => 'area_id', 'unique' => 0), 'fk_proposals_levels1' => array('column' => 'level_id', 'unique' => 0)),
+		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB')
+	);
+	var $sizes = array(
+		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
+		'description' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 45),
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1)),
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB')
 	);
 	var $speakers = array(
@@ -88,7 +90,9 @@ class AppSchema extends CakeSchema {
 		'site' => array('type' => 'string', 'null' => true, 'default' => NULL),
 		'image' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 100),
 		'phone' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 45),
-		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'fk_speakers_users1' => array('column' => 'user_id', 'unique' => 0)),
+		'phone2' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 45),
+		'size_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'index'),
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'fk_speakers_users' => array('column' => 'user_id', 'unique' => 0), 'fk_speakers_sizes1' => array('column' => 'size_id', 'unique' => 0)),
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB')
 	);
 	var $users = array(
@@ -98,7 +102,8 @@ class AppSchema extends CakeSchema {
 		'fbid' => array('type' => 'string', 'null' => true, 'default' => NULL),
 		'created' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
 		'modified' => array('type' => 'datetime', 'null' => true, 'default' => NULL),
-		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'username_UNIQUE' => array('column' => 'email', 'unique' => 1)),
+		'group_id' => array('type' => 'integer', 'null' => true, 'default' => NULL, 'key' => 'index'),
+		'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => 1), 'username_UNIQUE' => array('column' => 'email', 'unique' => 1), 'fk_users_groups' => array('column' => 'group_id', 'unique' => 0)),
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_general_ci', 'engine' => 'InnoDB')
 	);
 }

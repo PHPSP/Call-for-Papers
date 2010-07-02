@@ -12,7 +12,8 @@ Third Party code used:
 * CakePHP 1.3 by Cake Software Foundation Inc.
 * Image Behavior for CakePHP by Yevgeny Tomenko aka SkieDr 
 
-Up & Running
+Up & Running in a few steps
+* A more detailed help can be found here: http://wiki.github.com/PHPSP/Call-for-Papers/installation
 * Be sure that mod_rewrite is enabled in Apache
 * Create the database from the /app/config/schema/cfp.sql file
 * Rename the /app/config/database.php.default to /app/config/database.php

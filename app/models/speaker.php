@@ -1,7 +1,23 @@
 <?php
+/**
+ * Speaker model
+ *
+ * @package default
+ * @author Augusto Pascutti
+ */
 class Speaker extends AppModel {
-	var $name = 'Speaker';
-	var $validate = array(
+    /**
+     * Model name
+     *
+     * @var string
+     */
+	public $name = 'Speaker';
+	/**
+	 * Validation rules
+	 *
+	 * @var array
+	 */
+	public $validate = array(
 		'user_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
@@ -12,6 +28,26 @@ class Speaker extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+        'firstName' => array(
+                        'notempty' => array(
+                                        'rule' => array('notempty'),
+                                        'message' => 'This field cannot be empty.',
+                        //'allowEmpty' => false,
+                        //'required' => false,
+                        //'last' => false, // Stop validation after this rule
+                        //'on' => 'create', // Limit validation to 'create' or 'update' operations
+                        ),
+        ),
+        'lastName' => array(
+                        'notempty' => array(
+                                        'rule' => array('notempty'),
+                                        'message' => 'This field cannot be empty.',
+                        //'allowEmpty' => false,
+                        //'required' => false,
+                        //'last' => false, // Stop validation after this rule
+                        //'on' => 'create', // Limit validation to 'create' or 'update' operations
+                        ),
+        ),
 		'rg' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -131,19 +167,35 @@ class Speaker extends AppModel {
 		)
 	);
 	
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-	var $belongsTo = array(
+    /**
+     * Belongs to relation
+     *
+     * @var array
+     */
+	public $belongsTo = array(
 		'User' => array(
 			'className' => 'User',
 			'foreignKey' => 'user_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
+		),
+		'Size' => array(
+			'className' => 'Size',
+			'foreignKey' => 'size_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
 	);
 
-	var $hasMany = array(
+    /**
+     * Has many relation
+     *
+     * @var array
+     */
+	public $hasMany = array(
 		'Proposal' => array(
 			'className' => 'Proposal',
 			'foreignKey' => 'speaker_id',
