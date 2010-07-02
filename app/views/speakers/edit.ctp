@@ -25,7 +25,7 @@
 		echo $this->Form->input('complement');
 		echo $this->Form->input('twitter');
 		echo $this->Form->input('site');
-		echo $this->Form->input('size', array('label'=>__('T-shirt size',true)));
+		echo $this->Form->input('size_id', array('label'=>__('T-shirt size',true)));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>

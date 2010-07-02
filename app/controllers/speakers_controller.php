@@ -44,6 +44,12 @@ class SpeakersController extends AppController {
 		$this->redirect('edit');
 	}
 
+    /**
+     * Adds speaker data to the user who is logged in.
+     *
+     * @return void
+     * @author Augusto Pascutti
+     */
 	function add() {
 		$user_id = $this->Session->read('Auth.User.id'); // logged user
 		
@@ -58,10 +64,16 @@ class SpeakersController extends AppController {
 			}
 		}
 		$users   = $this->Speaker->User->find('list');
-		
-		$this->set(compact('users','user_id'));
+		$sizes   = $this->Speaker->Size->find('list');
+		$this->set(compact('users','user_id','sizes'));
 	}
 
+    /**
+     * Edit speaker data of the user who is logged in
+     *
+     * @return void
+     * @author Augusto Pascutti
+     */
 	function edit() {
 		$id = $this->Session->read('Auth.User.id');
 		if (!$id && empty($this->data)) {
@@ -82,6 +94,7 @@ class SpeakersController extends AppController {
 		}
 		
 		$users = array($id=>$id);
-		$this->set(compact('users'));
+		$sizes   = $this->Speaker->Size->find('list');
+		$this->set(compact('users','sizes'));
 	}
 }

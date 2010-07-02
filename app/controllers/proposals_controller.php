@@ -63,7 +63,7 @@ class ProposalsController extends AppController {
         if ( in_array($this->params['action'],$allowedActions) ) {
             return;
         }
-        $id = ( is_null($id) )? $this->params['id'] : $id ;
+        $id = ( is_null($id) )? $this->params['named']['id'] : $id ;
         if ( empty($id) ||
              ! $this->Proposal->checkSpeakerProposal($this->speakerId, $id) 
         ) {
@@ -102,19 +102,20 @@ class ProposalsController extends AppController {
 				$this->Session->setFlash(sprintf(__('The %s could not be saved. Please, try again.', true), __('proposal',true)));
 			}
 		}
-		$areas = $this->Proposal->Area->find('list');
-		$this->set(compact('areas'));
+		$areas  = $this->Proposal->Area->find('list');
+		$levels = $this->Proposal->Level->find('list');
+		$this->set(compact('areas','levels'));
 	}
 
     /**
      * Edits a given proposal.
      * The given proposal must belongs to the logged user.
      *
-     * @param int $id 
      * @return void
      * @author Augusto Pascutti
      */
-	public function edit($id = null) {
+	public function edit() {
+	    $id = ( isset($this->params['named']['id']) ) ? $this->params['named']['id'] : null ;
 	    $this->_checkProposal($id);
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('proposal',true)));
@@ -134,7 +135,8 @@ class ProposalsController extends AppController {
 		}
 		$speakers = $this->Proposal->Speaker->find('list');
 		$areas    = $this->Proposal->Area->find('list');
-		$this->set(compact('speakers'));
+		$levels   = $this->Proposal->Level->find('list');
+		$this->set(compact('speakers','levels','areas'));
 	}
 
     /**
@@ -145,7 +147,8 @@ class ProposalsController extends AppController {
      * @return void
      * @author Augusto Pascutti
      */
-	public function delete($id = null) {
+	public function delete() {
+	    $id = ( isset($this->params['named']['id']) ) ? $this->params['named']['id'] : null ;
 		if (!$id) {
 			$this->Session->setFlash(sprintf(__('Invalid id for %s', true), 'proposal'));
 			$this->redirect(array('action'=>'index'));

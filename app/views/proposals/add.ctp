@@ -9,7 +9,7 @@
 		echo $this->Form->input('abstract');
 		echo $this->Form->input('description');
 		echo $this->Form->input('after', array('label'=>__('After the speech, what attendee will know?', true)));
-		echo $this->Form->input('level');
+		echo $this->Form->input('level_id');
 		echo $this->Form->input('time');
 	?>
 	</fieldset>

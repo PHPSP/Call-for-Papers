@@ -43,17 +43,6 @@ class AppController extends Controller {
     }
     
     /**
-     * Function executed before the view is rendered.
-     *
-     * @see Controller::beforeRender()
-     * @return void
-     * @author Augusto Pascutti
-     */
-    public function beforeRender() {
-        $this->_enumFields();
-    }
-    
-    /**
      * Selects the language to be used in the application based on Url route,
      * Cookie or Session configuration.
      *
@@ -75,39 +64,5 @@ class AppController extends Controller {
         Configure::write('Config.language',$lang);
         $this->Session->write($index,$lang);
         $this->Cookie->write($index,$lang);
-    }
-    
-    /**
-     * Searches inside models for ENUM type columns and creates a SELECT tag
-     * for each column to be displayed in the view.
-     * 
-     * Based in code by gino pilotino (gunzip) on 
-     * http://bakery.cakephp.org/articles/view/baked-enum-fields-reloaded
-     *
-     * @return void
-     * @author Augusto Pascutti
-     * @author Gino Pilotino
-     */
-    protected function _enumFields() {
-        $models = array();
-        foreach ($this->modelNames as $model) {
-            $models[] = $model;
-        }
-        foreach ($models as $model) {
-            foreach ($this->$model->_schema as $fieldName=>$attrs) {
-                if ( strpos($attrs['type'], 'enum') === false) { continue; }
-                $options = array();
-                preg_match_all("/\'([^\']+)\'/", $attrs['type'], $options);
-                if ( count($options) <= 0 ) { continue; }
-                if ( ! isset($options[1]) || ! is_array($options[1]) ) { continue; }
-                $options    = array_combine($options[1], $options[1]);
-                $varName    = Inflector::camelize(Inflector::pluralize($fieldName));
-                $varName[0] = strtolower($varName[0]);
-                foreach ($options as $idx=>$option) {
-                    $options[$idx] = __($option, true);
-                }
-                $this->set($varName, $options);
-            }
-        }
     }
 }

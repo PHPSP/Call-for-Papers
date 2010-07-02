@@ -23,11 +23,11 @@
 			<?php __($proposal['Area']['name']); ?>
 		</td>
 		<td><?php echo $proposal['Proposal']['title']; ?>&nbsp;</td>
-		<td><?php echo $levels[$proposal['Proposal']['level']]; ?>&nbsp;</td>
+		<td><?php echo $proposal['Level']['name']; ?>&nbsp;</td>
 		<td><?php echo $times[$proposal['Proposal']['time']]; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', 'id'=>$proposal['Proposal']['id'])); ?>
-			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $proposal['Proposal']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $proposal['Proposal']['id'])); ?>
+			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', 'id'=>$proposal['Proposal']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $proposal['Proposal']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
