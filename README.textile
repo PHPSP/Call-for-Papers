@@ -1,0 +1,35 @@
+Call For Papers
+PHPSPLabs - PHPSP User Group
+Mantainer: Augusto Pascutti <augusto [at] phpsp org br>
+
+This is an effort of doing a system which can be used to  gather presentations
+from people for an specific event. This project is open sourced under the MIT
+Licence and can be used and modified by anyone. The requirements are:
+* PHP 5 or greater
+* Almost any database is supported
+
+Third Party code used:
+* CakePHP 1.3 by Cake Software Foundation Inc.
+* Image Behavior for CakePHP by Yevgeny Tomenko aka SkieDr 
+
+Up & Running in a few steps
+* A more detailed help can be found here: http://wiki.github.com/PHPSP/Call-for-Papers/installation
+* Be sure that mod_rewrite is enabled in Apache
+* Rename the /app/config/database.php.default to /app/config/database.php
+* Configure the access to the database in the /app/config/database.php file
+* Run schema creation and updates from cake console (see wiki for details)
+* Grant write access to the apache user in the following dirs and subdirs
+** /app/tmp/cache
+** /app/tmp/logs
+** /app/webroot/img/upload
+* Point your browser to the address where you installed the app and have fun!
+
+How can you help?
+* Testing and sending us Tickets!
+* Resolving existing tickets!
+* Spreading the word about the project!
+
+How can I get Help?
+* First the project's wiki: http://wiki.github.com/PHPSP/Call-for-Papers/ 
+* You can send a message to anyone involved into the project (throught GitHub)
+* CakePHP Manual for 1.3 version (http://book.cakephp.org/view/876/The-Manual)
