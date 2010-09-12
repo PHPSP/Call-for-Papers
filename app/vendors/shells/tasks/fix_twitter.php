@@ -1,15 +1,30 @@
 <?php
-
 /**
  * Runs through Speakers fixing their twitter handles
  *
  * @package       CfP
  * @subpackage    CfP.shell.tasks
+ * @author        Rafael Dohms
  */
 class FixTwitterTask extends Shell {
     var $uses = array('Speaker');
 
-    function execute()
+    /**
+     * Description of this task
+     *
+     * @return string
+     */
+    function desc()
+    {
+        return "Runs through Speakers fixing their twitter handles";
+    }
+
+    /**
+     * Executes the task
+     *
+     * @return void
+     */
+    function run()
     {
         $speakers = $this->Speaker->find("all");
 
@@ -20,4 +35,3 @@ class FixTwitterTask extends Shell {
     }
 
 }
-?>
