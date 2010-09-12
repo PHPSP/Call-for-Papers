@@ -1,4 +1,5 @@
-Call For Papers
+h1. Call For Papers
+www.phpsp.org.br
 PHPSPLabs - PHPSP User Group
 Mantainer: Augusto Pascutti <augusto [at] phpsp org br>
 
@@ -8,11 +9,11 @@ Licence and can be used and modified by anyone. The requirements are:
 * PHP 5 or greater
 * Almost any database is supported
 
-Third Party code used:
+h2. Third Party code used:
 * CakePHP 1.3 by Cake Software Foundation Inc.
 * Image Behavior for CakePHP by Yevgeny Tomenko aka SkieDr 
 
-Up & Running in a few steps
+h2. Up & Running in a few steps
 * A more detailed help can be found here: "Installation Guide (Wiki)":http://wiki.github.com/PHPSP/Call-for-Papers/installation
 * Be sure that mod_rewrite is enabled in Apache
 * Rename the /app/config/database.php.default to /app/config/database.php
@@ -24,12 +25,12 @@ Up & Running in a few steps
 ** /app/webroot/img/upload
 * Point your browser to the address where you installed the app and have fun!
 
-How can you help?
+h2. How can you help?
 * Testing and sending us Tickets!
 * Resolving existing tickets!
 * Spreading the word about the project!
 
-How can I get Help?
+h2. How can I get Help?
 * First the "project's wiki":http://wiki.github.com/PHPSP/Call-for-Papers/ 
 * You can send a message to anyone involved into the project (throught GitHub)
 * "CakePHP Manual for 1.3 version":http://book.cakephp.org/view/876/The-Manual
