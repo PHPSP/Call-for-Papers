@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# Alias to cake Bake console utility.
+# @author Augusto Pascutti <augusto [at] phpsp [dot] org [dot] br>
+
+APPROOT=`dirname $0`;
+if [ $APPROOT == "." ]; then
+  APPROOT=`pwd`;
+fi;
+APPPATH="${APPROOT}/app";
+APPLIB="${APPROOT}/cake/cake";
+
+$APPLIB/console/cake -app "${APPPATH}" "$@";
