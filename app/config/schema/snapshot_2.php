@@ -4,7 +4,7 @@
 class snapshotSchema extends CakeSchema {
 	var $name = 'snapshot';
 
-	var $file = 'snapshot_3.php';
+	var $file = 'snapshot_2.php';
 
 	function before($event = array()) {
 		return true;
