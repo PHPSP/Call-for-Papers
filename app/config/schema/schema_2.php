@@ -1,10 +1,10 @@
 <?php 
 /* SVN FILE: $Id$ */
-/* snapshot schema generated on: 2010-09-12 04:09:10 : 1284276970*/
-class snapshotSchema extends CakeSchema {
-	var $name = 'snapshot';
+/* App schema generated on: 2010-09-12 14:09:00 : 1284314100*/
+class AppSchema extends CakeSchema {
+	var $name = 'App';
 
-	var $file = 'snapshot_2.php';
+	var $file = 'schema_2.php';
 
 	function before($event = array()) {
 		return true;
@@ -96,6 +96,8 @@ class snapshotSchema extends CakeSchema {
 	var $speakers = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
 		'user_id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'index'),
+		'firstName' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 100, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
+		'lastName' => array('type' => 'string', 'null' => true, 'default' => NULL, 'length' => 100, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
 		'rg' => array('type' => 'string', 'null' => false, 'default' => NULL, 'length' => 100, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
 		'abstract' => array('type' => 'text', 'null' => false, 'default' => NULL, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
 		'description' => array('type' => 'text', 'null' => true, 'default' => NULL, 'collate' => 'utf8_general_ci', 'charset' => 'utf8'),
