@@ -6,7 +6,7 @@
  * @subpackage    CfP.shell
  */
 class FixShell extends Shell {
-    var $tasks = array('FixTwitter','SizesTable');
+    var $tasks = array('FixTwitter','SizesTable','LevelsTable');
 
     /**
      * Init of the shell

@@ -7,7 +7,7 @@
  * @subpackage    CfP.shell.tasks.
  * @author        Augusto Pascutti
  */
-class SizesTAbleTask extends Shell {
+class SizesTableTask extends Shell {
     var $uses = array('Speaker','Size');
     
     /**
@@ -15,7 +15,7 @@ class SizesTAbleTask extends Shell {
      *
      * @var string
      */
-    var $oldColumn = null;
+    var $oldColumn = 'size';
     
     /**
      * Returns the description
@@ -45,7 +45,8 @@ class SizesTAbleTask extends Shell {
         $this->out(' - The "OLD COLUMN" is an column YOU should create with the size selected by the speaker. Usually, this is the old "sizes" column. Hint, rename it;');
         $this->out(' - Please, do a favor to yourself, and dump your database. AND TEST IT!');
         
-        $old_column = $this->in('Please, what is the name of the OLD COLUMN?');
+        //$old_column = $this->in('Please, what is the name of the OLD COLUMN?');
+        $old_column = $this->oldColumn;
         // Checking if the old column exists
         $speaker = $this->Speaker->find('first');
         if ( ! isset($speaker['Speaker'][$old_column]) ) {
@@ -54,7 +55,7 @@ class SizesTAbleTask extends Shell {
         }
         $this->oldColumn = $old_column;
         // Proceed ?
-        $proceed = $this->in('Last change, still wanna go?', array('y','n'));
+        $proceed = $this->in('Last chance, still wanna go?', array('y','n'));
         switch ($proceed) {
             case 'n': case 'N':
                 exit;
