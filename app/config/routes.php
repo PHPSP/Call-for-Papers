@@ -28,6 +28,7 @@
  */
  	Router::connect('/:lang/:controller/:action/*', array(), array('lang'=>'[a-z]{3}'));
 	Router::connect('/', array('lang'=>'por', 'controller' => 'users', 'action' => 'index'));
+	//Router::connect('/', array('lang'=>'por', 'controller' => 'votes', 'action' => 'index'));
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */

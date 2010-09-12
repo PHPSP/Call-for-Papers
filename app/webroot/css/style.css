@@ -214,7 +214,8 @@ div.paging span a {
 dl {
 	line-height: 2em;
 	margin: 0em 0em;
-	width: 60%;
+	margin-bottom: 20px;
+	width: 100%;
 }
 dl .altrow {
 	background: #f4f4f4;
@@ -227,6 +228,7 @@ dt {
 dd {
 	margin-left: 10em;
 	margin-top: -2em;
+	margin-bottom: 1em;
 	vertical-align: top;
 }
 
@@ -404,6 +406,19 @@ div.actions ul li a:hover {
 	text-decoration: underline;
 }
 
+/** Votes **/
+div.votes fieldset > p {
+    margin: 20px 10px;
+    margin-bottom: 50px;
+}
+div.votes #options {
+    margin-top: 10px;
+    text-align: center;
+}
+div.votes #options a {
+    margin-right: 30px;
+    font-size: 2em;
+}
 /** Related **/
 div.related {
 	clear: both;
@@ -511,4 +526,8 @@ div.code-coverage-results span.result-ok {
 }
 div.code-coverage-results span.result-good {
 	color: #0a0;
+}
+.clear {
+    clear:both;
+    margin-bottom: 10px;
 }

@@ -2,14 +2,15 @@
 ## Site configuration
 ##
 app/config/database.php
+app/config/core.php
 
 ##
 ## Temporary files
 ##
-app/tmp/
+app/tmp/*
 app/media/*
 app/webroot/img/upload/*
-
+cake/*
 ##
 ## Development meta files
 ##

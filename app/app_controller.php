@@ -6,40 +6,40 @@
  * @author Augusto Pascutti
  */
 class AppController extends Controller {
-	/**
-	 * Layout to be used
-	 *
-	 * @var string
-	 */
+    /**
+     * Layout to be used
+     *
+     * @var string
+     */
     public $layout = 'phpconf';
-	/**
-	 * Components to load in all controllers
-	 *
-	 * @var string
-	 */
+    /**
+     * Components to load in all controllers
+     *
+     * @var string
+     */
     public $components = array('Auth', 'Session', 'Cookie');
     
-	/**
-	 * Function executed before the method from the controller.
-	 *
-	 * @see Controller::beforeFilter()
-	 * @return void
-	 * @author Augusto Pascutti
-	 */
+    /**
+     * Function executed before the method from the controller.
+     *
+     * @see Controller::beforeFilter()
+     * @return void
+     * @author Augusto Pascutti
+     */
     public function beforeFilter() {
         $this->_languageSelect();
         //Configure AuthComponent
-		$this->Auth->fields = array(
-			'username' => 'email',
-			'password' => 'password'
-			);
+        $this->Auth->fields = array(
+            'username' => 'email',
+            'password' => 'password'
+            );
         $this->Auth->loginAction    = '/users/login';
         $this->Auth->logoutRedirect = '/users/index';
         $this->Auth->loginRedirect  = array('controller' => 'proposals', 
                                             'action'     => 'index');
-		// Logged var for views
-		$logged = (boolean) $this->Session->read('Auth.User');
-		$this->set('logged',(int) $logged);
+        // Logged var for views
+        $logged = (boolean) $this->Session->read('Auth.User');
+        $this->set('logged',(int) $logged);
     }
     
     /**

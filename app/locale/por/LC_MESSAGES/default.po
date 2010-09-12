@@ -80,6 +80,24 @@ msgstr "palestrante"
 msgid "proposal"
 msgstr "palestra"
 
+msgid "Thank you for you vote !"
+msgstr "Obrigado pelo seu voto !"
+
+msgid "Your vote was not considered because of an error !"
+msgstr "Seu voto não foi considerado por causa de um erro !"
+
+msgid "Vote in this Proposal"
+msgstr "Vote nesta Proposta"
+
+msgid "Would you like to see this proposal as a session of 60 or 90 minutes in the PHP Conference Brazil 2010?  If you don't know, just refresh this page and see another proposal."
+msgstr "Gostaria de ver esta proposta como palestra de 60 ou 90 minutos na PHP Conference Brasil 2010? Se você não tem certeza, recarregue esta página e veja outra proposta."
+
+msgid "Yes"
+msgstr "Sim"
+
+msgid "No"
+msgstr "Não"
+
 #: /controllers/proposals_controller.php:25
 msgid "The given proposal does not belongs to you!"
 msgstr "Apalestra que você deseja ver não pertence a você!"
