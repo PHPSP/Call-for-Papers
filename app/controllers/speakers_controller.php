@@ -29,7 +29,7 @@ class SpeakersController extends AppController {
 		// Check: user has a speaker profile
 		if ( $action != 'add' && empty($speaker) ) {
 			$this->redirect('add');
-		} else if ( ! empty($speaker) && $action != 'edit' ) {
+		} else if ( ! empty($speaker) && $action != 'edit' && $action != 'view' ) {
 		    $this->redirect('edit');
 		}
 	}
@@ -50,7 +50,7 @@ class SpeakersController extends AppController {
      * @return void
      * @author Augusto Pascutti
      */
-	function add() {
+	public function add() {
 		$user_id = $this->Session->read('Auth.User.id'); // logged user
 		
 		if (!empty($this->data)) {
@@ -74,7 +74,7 @@ class SpeakersController extends AppController {
      * @return void
      * @author Augusto Pascutti
      */
-	function edit() {
+	public function edit() {
 		$id = $this->Session->read('Auth.User.id');
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(sprintf(__('Invalid %s', true),  __('speaker',true)));
@@ -96,5 +96,27 @@ class SpeakersController extends AppController {
 		$users = array($id=>$id);
 		$sizes   = $this->Speaker->Size->find('list');
 		$this->set(compact('users','sizes'));
+	}
+	
+	/**
+	 * Views a detail of a given speaker.
+	 *
+	 * @return void
+	 * @author Augusto Pascutti
+	 */
+	public function view() {
+	    $id = ( isset($this->params['named']['speaker_id']) ) ? $this->params['named']['speaker_id'] : null ;
+	    
+	    if ( is_null($id) ) {
+	        $this->Session->setFlash(__('Speaker not specified!', true));
+	    }
+	    
+	    $speaker = $this->Speaker->findById($id);
+	    
+	    if ( count($speaker) <= 0 ) {
+	        $this->Session->setFlash(__('Speaker not found', true));
+	    }
+	    
+	    $this->set(compact('speaker'));
 	}
 }

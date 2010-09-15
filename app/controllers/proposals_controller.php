@@ -44,9 +44,6 @@ class ProposalsController extends AppController {
         $this->speakerId = $speaker['Speaker']['id'];
         $this->set('speaker_id',$this->speakerId);
         
-        // checks if the given proposal id is from the current speaker
-        $this->_checkProposal();
-        
         $times   = array('60' => '60min',
                          '90' => '90min');
         $this->set(compact('times'));
@@ -137,6 +134,24 @@ class ProposalsController extends AppController {
 		$areas    = $this->Proposal->Area->find('list');
 		$levels   = $this->Proposal->Level->find('list');
 		$this->set(compact('speakers','levels','areas'));
+	}
+	
+	/**
+	 * Views a proposal
+	 *
+	 * @return void
+	 * @author Augusto Pascutti
+	 */
+	public function view() {
+	    $id = ( isset($this->params['named']['id']) ) ? $this->params['named']['id'] : null ;
+		if (!$id && empty($this->data)) {
+			$this->Session->setFlash(sprintf(__('Invalid %s', true), __('proposal',true)));
+			$this->redirect(array('action' => 'index'));
+		}
+		$this->Proposal->recursive = 1;
+		$proposal = $this->Proposal->read(null,$id);
+		
+		$this->set(compact('proposal'));
 	}
 
     /**

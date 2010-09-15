@@ -217,6 +217,9 @@ dl {
 	margin-bottom: 20px;
 	width: 100%;
 }
+.separate-lists dl {
+    border-top: 3px solid #DDDDDD;
+}
 dl .altrow {
 	background: #f4f4f4;
 }
@@ -226,10 +229,13 @@ dt {
 	vertical-align: top;
 }
 dd {
-	margin-left: 10em;
-	margin-top: -2em;
-	margin-bottom: 1em;
+	padding-left: 8em;
+	padding-bottom: 1em;
 	vertical-align: top;
+}
+.separate-lists dd {
+    font-size: 2em;
+    color: #BBBBBB;
 }
 
 /** Forms **/
