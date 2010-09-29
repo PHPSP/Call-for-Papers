@@ -68,4 +68,24 @@ class ReportsController extends AppController {
         }
         $this->set(compact('country','quant','proposals'));
     }
+    
+    /**
+     * Display speakers for a given country
+     *
+     * @return void
+     * @author Augusto Pascutti
+     */
+    public function speakersByCountry() {
+        $country = ( isset($this->params['named']['country']) ) ? $this->params['named']['country'] : null;
+        if ( is_null($country) ) {
+            $this->Session->setFlash("You need to specify a country!");
+            $this->redirect(array('action'=>'summary'));
+        }
+        $this->Speaker->recursive = 1;
+        $speakersRaw              = $this->Speaker->findAllByCountry($country);
+        $speakersCond             = array('Speaker.country'=>$country);
+        $speakers                 = $this->paginate('Speaker',$speakersCond);
+        $quant                    = count($speakersRaw);
+        $this->set(compact('country','speakers','quant'));
+    }
 }
