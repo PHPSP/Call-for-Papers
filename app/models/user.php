@@ -47,6 +47,50 @@ class User extends AppModel {
             ),
         ),
     );
+    
+    /**
+     * Behavior implementation
+     *
+     * @var array
+     */
+    public $actAs = array('Acl' => array('type'=>'requester'));
+
+    /**
+     * Returns the parent from this user, if exists, the Group.
+     *
+     * @return array
+     * @author Augusto Pascutti
+     */
+    public function parentNode() {
+        if ( $this->id && $empty($this->data) ) {
+            return null;
+        }
+        
+        if ( isset($this->data['User']['group_id']) ) {
+            $group_id = $this->data['User']['group_id'];
+        } else {
+            $group_id = $this->field('group_id');
+        }
+        
+        if ( ! empty($group_id) ) {
+            return array('Group'=>array('id'=>$group_id));
+        }
+        return null;
+    }
+    
+    /**
+     * Binds the User's permission always to the Group.
+     * This makes the Acl Behavior to not update the Aros table every time
+     * a users is added, because only the Group permissions matter, there is no 
+     * per-user permission setting.
+     *
+     * @param string $user 
+     * @return void
+     * @author Augusto Pascutti
+     */
+    public function bindNode($user) {
+        return array('Group'=>array('id'=>$user['User']['group_id']));
+    }
 
     /**
      * Has many association
@@ -70,19 +114,19 @@ class User extends AppModel {
     );
     
     /**
-        * Belongs to relation
-        *
-        * @var array
-        */
-       public $belongsTo = array(
-           'Group' => array(
-               'className' => 'Group',
-               'foreignKey' => 'group_id',
-               'conditions' => '',
-               'fields' => '',
-               'order' => ''
-           )
-       );
-    
+     * Belongs to relation
+     *
+     * @var array
+     */
+   public $belongsTo = array(
+       'Group' => array(
+           'className' => 'Group',
+           'foreignKey' => 'group_id',
+           'conditions' => '',
+           'fields' => '',
+           'order' => ''
+       )
+   );
+
 
 }

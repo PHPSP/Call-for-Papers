@@ -11,14 +11,14 @@ class Group extends AppModel {
      *
      * @var string
      */
-	var $name = 'Group';
+	public $name = 'Group';
 	
 	/**
 	 * Validation
 	 *
 	 * @var array
 	 */
-	var $validate = array(
+	public $validate = array(
 		'name' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -30,13 +30,30 @@ class Group extends AppModel {
 			),
 		),
 	);
+	
+	/**
+	 * Behavior implementation.
+	 *
+	 * @var arrray
+	 */
+	public $actAs = array('Acl'=>array('type'=>'requester'));
+	
+	/**
+	 * A group never has a parent node.
+	 *
+	 * @return null
+	 * @author Augusto Pascutti
+	 */
+	public function parentNode() {
+	    return null;
+	}
 
     /**
      * Has many relation
      *
      * @var array
      */
-	var $hasMany = array(
+	public $hasMany = array(
 		'User' => array(
 			'className' => 'User',
 			'foreignKey' => 'group_id',
