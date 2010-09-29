@@ -26,7 +26,7 @@
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $this->Html->link($speaker['Speaker']['id'], array('controller'=>'speakers', 'action'=>'view', 'id'=> $speaker['Speaker']['id'])); ?> </td>
+		<td><?php echo $this->Html->link($speaker['Speaker']['id'], array('controller'=>'speakers', 'action'=>'view', 'speaker_id'=> $speaker['Speaker']['id'])); ?> </td>
 		<td><?php echo$speaker['Speaker']['firstName'],' ',$speaker['Speaker']['lastName']; ?></td>
 		<td><?php echo $speaker['Speaker']['twitter']; ?>&nbsp; </td>
 		<td><?php echo $speaker['Speaker']['country']; ?>&nbsp;</td>

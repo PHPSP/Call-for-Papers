@@ -12,6 +12,12 @@ class SpeakersController extends AppController {
      * @var string
      */
 	public $name = 'Speakers';
+	/**
+	 * Models to use in this controller
+	 *
+	 * @var array
+	 */
+	public $uses = array('Speaker','Proposal');
 	
 	/**
 	 * Executed before the controller method.
@@ -112,11 +118,13 @@ class SpeakersController extends AppController {
 	    }
 	    
 	    $speaker = $this->Speaker->findById($id);
-	    
 	    if ( count($speaker) <= 0 ) {
 	        $this->Session->setFlash(__('Speaker not found', true));
 	    }
 	    
-	    $this->set(compact('speaker'));
+	    $proposalsCond = array('Speaker.id'=>$id);
+	    $proposals = $this->paginate('Proposal',$proposalsCond);
+	    
+	    $this->set(compact('speaker','proposals'));
 	}
 }
