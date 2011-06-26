@@ -2,7 +2,7 @@
 /**
  * Speakers controller.
  *
- * @package default
+ * @package CfP.controllers
  * @author Augusto Pascutti
  */
 class SpeakersController extends AppController {

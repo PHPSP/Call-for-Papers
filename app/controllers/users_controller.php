@@ -1,4 +1,10 @@
 <?php
+/**
+ * Users controller
+ *
+ * @package CfP.controllers
+ * @author Augusto Pascutti
+ */
 class UsersController extends AppController {
 
 	var $name = 'Users';

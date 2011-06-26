@@ -2,7 +2,7 @@
 /**
  * Voting controller
  *
- * @package default
+ * @package CfP.controllers
  * @author Augusto Pascutti
  */
 class VotesController extends AppController {

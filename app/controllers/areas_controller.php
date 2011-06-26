@@ -1,4 +1,10 @@
 <?php
+/**
+ * Areas controller
+ *
+ * @package CfP.controllers
+ * @author Augusto Pascutti
+ */
 class AreasController extends AppController {
 
     var $name = 'Areas';

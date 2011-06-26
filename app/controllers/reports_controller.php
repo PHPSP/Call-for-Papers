@@ -2,14 +2,29 @@
 /**
  * Reports controller
  *
- * @package default
+ * @package CfP.controllers
  * @author Augusto Pascutti
  */
 class ReportsController extends AppController {
+    /**
+     * Controller name
+     *
+     * @var string
+     */
     public $name = "Reports";
-    
+    /**
+     * Models to use in this controller
+     *
+     * @var array
+     */
     public $uses = array('Proposal','Speaker');
     
+    /**
+     * Index action
+     *
+     * @return void
+     * @author Augusto Pascutti
+     */
     public function index() {
         $this->redirect(array('action'=>'summary'));
     }

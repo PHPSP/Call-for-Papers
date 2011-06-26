@@ -2,7 +2,7 @@
 /**
  * Proposals controller
  *
- * @package default
+ * @package CfP.controllers
  * @author Augusto Pascutti
  */
 class ProposalsController extends AppController {
